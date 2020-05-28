@@ -25,7 +25,7 @@
         <rect x="33" y="39" width="10" height="5" fill="#bec1c3"/>
         <rect x="14" y="37" width="5" height="9" fill="#bec1c3"/>
         <polygon
-          points="48 39 48 44.34 43 44.34 43 49.69 33 49.69 33 44.34 29 44.34 29 48.62 23 48.62 23 53.97 29 53.97 29 59.31 33 59.31 33 64.66 38 64.66 38 70 43 70 43 64.66 48 64.66 48 53.97 53 53.97 53 48.62 57 48.62 57 39 48 39"
+      points="48 39 48 44.34 43 44.34 43 49.69 33 49.69 33 44.34 29 44.34 29 48.62 23 48.62 23 53.97 29 53.97 29 59.31 33 59.31 33 64.66 38 64.66 38 70 43 70 43 64.66 48 64.66 48 53.97 53 53.97 53 48.62 57 48.62 57 39 48 39"
           fill="#bec1c3"/>
         <polygon
           points="0 47 9 47 9 38 19 38 19 24 48 24 48 28 53 28 53 18 48 18 48 13 14 13 14 18 9 18 9 23 5 23 5 38 0 38 0 47"
@@ -180,8 +180,50 @@
     <p class="setup-similar-label">Петр Петров</p>
   </div>
 </template>
+<script>
+  var fireballSize = 22;
+  var wizardSpeed = 3;
+  var wizardWidth = 70;
+  var COIF_WIDTH = 1.377;
+  var FIREBALL_SPEED_LEFT = 2;
+  var FIREBALL_SPEED_RIGHT = 5;
 
+/**
+  * Вычисляет высоту волшебника
+  * @param  {number} width  - ширина волшебника
+  * @return {number} - wizardHeight - высоту волшебника
+  */
+  function getWizardHeight(width) {
+    return wizardHeight = COIF_WIDTH * width;
+  }
+ /**
+  * Определяет скорость полета fireball в зависимомти от ветра
+   * @param  {boolean} IsWindFromLeft - ветер слева
+   * return  {number} - скорость движения firball в зависимости от ветра
+   */
+  function getFireballSpeed(IsWindFromLeft) {
+    return IsWindFromLeft ? FIREBALL_SPEED_LEFT : FIREBALL_SPEED_RIGHT;
+  }
+ /**
+  * Высчитывает начальное положение мага при старте игры по оси X
+   * @param  {number} gameFieldWidth - высота игрового пространства
+   * return {number} - начальные координаты волшебника по оси X
+   */
+  function getWizardX (gameFieldWidth) {
+    return gameFieldWidth/2;
+  }
+ /**
+  *  Высчитывает начальное положение мага при старте игры по оси Y
+   * @param  {number} gameFieldHeight - высота игрового пространства
+   * return {number} - начальные координаты волшебника по оси Y
+   */
+  function getWizardY (gameFieldHeight) {
+    return gameFieldHeight/3 - wizardHeight;
+  }
+</script>
+<!-- <script src="js/wizard.js"></script> -->
 <script src="js/game.js"></script>
+
 
 </body>
 </html>
