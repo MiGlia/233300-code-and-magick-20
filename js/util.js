@@ -28,7 +28,15 @@
   function getSortArray(arr) {
     return getSliceArray(arr).sort(getSortValue);
   }
-
-
-
 })();
+
+ // function getMaxElementArr(arr) {
+  //   maxValue = arr[0];
+  //   for (i = 0; i < arr.length; i++) {
+  //     if (arr[i] > maxValue[0]) {
+  //       maxvalue = arr[i]
+  //     }
+  //   }
+  //   return maxValue;
+  // }
+
