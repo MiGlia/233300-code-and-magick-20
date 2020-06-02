@@ -19,7 +19,37 @@
     ctx.fillRect(x, y, CLOUD_WIDTH, CLOUD_HEIGHT);
   };
 
+  function getMaxElementArr(arr) {
+    maxValue = arr[0];
+    for (i = 0; i < arr.length; i++) {
+      if (arr[i] > maxValue[0]) {
+        maxvalue = arr[i]
+      }
+    }
+    return maxValue;
+  }
+
+
+
+  var arr1 = [1,10, 4];
+
+function grt(arr) {
+    var maxValue = arr[0]
+    arr.forEach(function (item) {
+      if (item > maxValue) {
+        maxValue = item;
+      }
+    })
+    return maxValue;
+  }
+
+
+grt(arr1);
+
   window.renderStatistics = function(ctx, players, times) {
-    renderCloud(ctx, INITIAL_CLOUD_X, INITIAL_CLOUD_Y, MAIN_COLOR);
+    renderCloud(ctx, INITIAL_CLOUD_X + GAP_CLOUD_SHADOW , INITIAL_CLOUD_Y + GAP_CLOUD_SHADOW , MAIN_COLOR)
+    renderCloud(ctx, INITIAL_CLOUD_X, INITIAL_CLOUD_Y, '#ffffff');
+
+
   };
 })();
