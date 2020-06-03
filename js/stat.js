@@ -15,6 +15,8 @@
   var firstCoordX = INITIAL_CLOUD_X + hist.indent; // начальная координата столбцов гистограммы по оси Х
   var firstCoordY = INITIAL_CLOUD_Y + CLOUD_HEIGHT - GAP; // начальная координата столбцов гистограммы по оси Y
   var indentX = hist.width + hist.indent; // шаг
+  var FIRST_TEXT = 'Ура вы победили!';
+  var SECOND_TEXT = 'Список результатов:';
 
   /**
    * Отрисовка прямоугольного облака для экрана статистики
@@ -65,8 +67,8 @@
   function renderStatisticsText(ctx) {
     ctx.font = '16px PT Mono';
     ctx.fillStyle = 'rgba(0, 0, 0, 1.0)';
-    ctx.fillText('Ура вы победили!', 120, 40);
-    ctx.fillText('Список результатов:', 120, 60);
+    ctx.fillText(FIRST_TEXT, 120, 40);
+    ctx.fillText(SECOND_TEXT, 120, 60);
   }
   /**
    * Отрисовка текста - времени и имен игроков
