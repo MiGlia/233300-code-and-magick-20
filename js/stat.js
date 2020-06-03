@@ -34,21 +34,59 @@
     return maxValue;
   }
 
-  // function renderCStatisticsColomns(ctx) {
-  //   ctx.fillStyle = MAIN_COLOR;
-  //   ctx.fillRect(INITIAL_CLOUD_X + GAP_CLOUD_SHADOW, INITIAL_CLOUD_X + GAP_CLOUD_SHADOW, CLOUD_WIDTH, CLOUD_HEIGHT);
-  // }
 
-  window.renderStatistics = function(ctx, players, times) {
-    // renderCloud(ctx, INITIAL_CLOUD_X + GAP, INITIAL_CLOUD_Y + GAP, MAIN_COLOR);
-    // renderCloud(ctx, INITIAL_CLOUD_X, INITIAL_CLOUD_Y, '#fff');
+  function renderStatisticsColomns(ctx, players, times) {
+
+    // times = window.util.getSortArr(times);
+    var hist = {
+      width: 40,
+      height: 150,
+      indent: 50
+    };
 
     var maxTime = getMaxElementArr(times);
-    var step = 150 / maxTime;
+    var step = hist.height / maxTime;
 
-    for
-    var coordX =
+    for (var i = 0; i < players.length; i++) {
+      ctx.fillStyle = (players[i] === 'Вы') ? 'rgba(255, 0, 0, 1.0)' : 'hsl(200, 61%, 50%,  ' + window.util.getRandomValue(0.1, 1) + ')';
+      ctx.fillRect(INITIAL_CLOUD_X + hist.indent + (hist.width + hist.indent) * i, INITIAL_CLOUD_Y + CLOUD_HEIGHT - GAP - LINEHEIGHT, hist.width, -step * times[i]);
+    }
+
+  }
+
+  function renderStatisticsText(ctx) {
+    ctx.font = '16px PT Mono';
+    ctx.fillStyle = 'rgba(0, 0, 0, 1.0)';
+    ctx.fillText('Ура вы победили!', 120, 40);
+    ctx.fillText('Список результатов:', 120, 60);
+  }
+
+  function renderStatisticsTimePlayers(ctx, players, times) {
 
 
+    var hist = {
+      width: 40,
+      height: 150,
+      indent: 50
+    };
+
+    var maxTime = getMaxElementArr(times);
+    var step = hist.height / maxTime;
+    for (var i = 0; i < players.length; i++) {
+     ctx.fillText(players[i], INITIAL_CLOUD_X + hist.indent + (hist.width + hist.indent) * i, INITIAL_CLOUD_Y + CLOUD_HEIGHT - GAP);
+     ctx.fillText(Math.floor(times[i]), INITIAL_CLOUD_X + hist.indent + (hist.width + hist.indent) * i, step * times[i]);
+    }
+  }
+
+
+  window.renderStatistics = function (ctx, players, times) {
+
+    renderCloud(ctx, INITIAL_CLOUD_X + GAP, INITIAL_CLOUD_Y + GAP, MAIN_COLOR);
+    renderCloud(ctx, INITIAL_CLOUD_X, INITIAL_CLOUD_Y, '#fff');
+    renderStatisticsColomns(ctx, players, window.util.getSortArray(times));
+    renderStatisticsText(ctx);
+    renderStatisticsTimePlayers(ctx, players, window.util.getSortArray(times));
   };
 })();
+
+
