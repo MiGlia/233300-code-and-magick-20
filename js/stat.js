@@ -1,16 +1,16 @@
 'use strict';
 (function () {
-  var CLOUD_WIDTH = 420; //px
-  var CLOUD_HEIGHT = 270; //px
-  var INITIAL_CLOUD_X = 100; //px
-  var INITIAL_CLOUD_Y = 10; //px
-  var GAP = 10; //px
+  var CLOUD_WIDTH = 420; // px
+  var CLOUD_HEIGHT = 270; // px
+  var INITIAL_CLOUD_X = 100; // px
+  var INITIAL_CLOUD_Y = 10; // px
+  var GAP = 10; // px
   var MAIN_COLOR = 'rgba(0, 0, 0, 0.7)';
-  var LINEHEIGHT = 20; //px
+  var LINEHEIGHT = 20; // px
   var hist = {
-    width: 40, //px
-    height: 150, //px
-    indent: 50 //px
+    width: 40, // px
+    height: 150, // px
+    indent: 50 // px
   };
   var firstCoordX = INITIAL_CLOUD_X + hist.indent; // начальная координата столбцов гистограммы по оси Х
   var firstCoordY = INITIAL_CLOUD_Y + CLOUD_HEIGHT - GAP; // начальная координата столбцов гистограммы по оси Y
@@ -44,7 +44,7 @@
     });
     return maxValue;
   }
-/**
+  /**
  * Отрисовывает столбцы гистограммы
  * @param  {?} ctx
  * @param  {Array} players - массив игроков (из файла game.js)
@@ -57,7 +57,7 @@
 
     for (var i = 0; i < players.length; i++) {
       ctx.fillStyle = (players[i] === 'Вы') ? 'rgba(255, 0, 0, 1.0)' : 'hsl(200, 61%, 50%,  ' + window.util.getRandomValue(0.1, 1) + ')';
-      ctx.fillRect(firstCoordX  +  indentX * i, firstCoordY  - LINEHEIGHT, hist.width, -step * times[i]);
+      ctx.fillRect(firstCoordX + indentX * i, firstCoordY - LINEHEIGHT, hist.width, -step * times[i]);
     }
   }
   /**
@@ -82,8 +82,8 @@
     var step = hist.height / maxTime;
 
     for (var i = 0; i < players.length; i++) {
-     ctx.fillText(players[i], firstCoordX  +  indentX  * i, firstCoordY);
-     ctx.fillText(Math.floor(times[i]), firstCoordX  +  indentX * i, 270 - (step * times[i]) - GAP -LINEHEIGHT);
+      ctx.fillText(players[i], firstCoordX + indentX * i, firstCoordY);
+      ctx.fillText(Math.floor(times[i]), firstCoordX + indentX * i, 270 - (step * times[i]) - GAP - LINEHEIGHT);
     }
   }
 

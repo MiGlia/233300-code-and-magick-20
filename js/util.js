@@ -29,10 +29,10 @@
     return getSliceArray(arr).sort(getSortValue);
   }
 
-    // Функция для рассчета случайного значения
-    function getRandomValue(min, max) {
-      return Math.random() * (max - min) + min;
-    }
+  // Функция для рассчета случайного значения
+  function getRandomValue(min, max) {
+    return Math.random() * (max - min) + min;
+  }
 
   window.util = {
     getRandomValue: getRandomValue,
