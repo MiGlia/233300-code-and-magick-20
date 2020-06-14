@@ -19,7 +19,6 @@
   function getSliceArray(arr) {
     return arr.slice();
   }
-
   /**
    * Возвращает скопированный отсортированный по возрастанию массив
    * @param  {Array} arr - массив
